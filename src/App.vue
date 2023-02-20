@@ -1,5 +1,8 @@
 <template>
-  <AppHeader />
+  <main>
+    <AppHeader />
+    <RouterView />
+  </main>
 </template>
 
 <script setup lang="ts">
