@@ -1,6 +1,8 @@
 <template>
   <header>
-    MyFilms
+    <div class="container">
+      MyFilms
+    </div>
   </header>
 </template>
 
