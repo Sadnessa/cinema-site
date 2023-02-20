@@ -19,4 +19,8 @@ body {
 section {
   background-color: var(--light);
 }
+
+.container {
+  padding: 20px 40px;
+}
 </style>
