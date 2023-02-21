@@ -9,5 +9,7 @@
 <style lang="scss" scoped>
 header {
   background-color: var(--white);
+  position: sticky;
+  top: 0;
 }
 </style>
