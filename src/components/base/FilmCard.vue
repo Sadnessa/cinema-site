@@ -4,8 +4,10 @@
       <img :src="card.img" />
     </div>
     <div class="card__content">
-      <h1 class="card__title">{{ card.title }}</h1>
-      <p class="card__price"> {{ card.price }}</p>
+      <div class="card__header">
+        <h1 class="card__title">{{ card.title }}</h1>
+        <span class="card__price">{{ card.price }}</span>
+      </div>
       <div class="card__actions">
         <MyButton flat>Подробнее</MyButton>
         <RouterLink to="/seat-booking/">
@@ -23,13 +25,12 @@ const props = defineProps({
   card: {
     type: Object,
     required: true,
-  }
+  },
 });
 </script>
 
 <style lang="scss" scoped>
 .card {
-  max-width: 30%;
   background-color: var(--white);
   overflow: hidden;
   border-radius: 6px;
@@ -49,9 +50,15 @@ const props = defineProps({
     padding: 10px 20px;
   }
 
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
   &__title {
     margin: 0;
-    margin-bottom: 14px;
   }
 
   &__actions {
