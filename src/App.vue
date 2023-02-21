@@ -16,8 +16,15 @@ body {
   margin: 0;
 }
 
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 section {
   background-color: var(--light);
+  flex-grow: 1;
 }
 
 .container {
