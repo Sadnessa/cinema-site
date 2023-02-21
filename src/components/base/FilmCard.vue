@@ -4,17 +4,19 @@
       <img :src="img" />
     </div>
     <div class="card__content">
-      <h1 class="card__title"> {{ title }} </h1>
+      <h1 class="card__title">{{ title }}</h1>
       <div class="card__actions">
         <MyButton flat>Подробнее</MyButton>
-        <MyButton>Купить билет</MyButton>
+        <RouterLink to="/seat-booking/">
+          <MyButton>Купить билет</MyButton>
+        </RouterLink>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import MyButton from './MyButton.vue';
+import MyButton from "./MyButton.vue";
 
 const props = defineProps({
   img: {
@@ -23,9 +25,9 @@ const props = defineProps({
   },
 
   title: {
-    type: String, 
-    default: "Film name"
-  }
+    type: String,
+    default: "Film name",
+  },
 });
 </script>
 
@@ -61,8 +63,14 @@ const props = defineProps({
     justify-content: center;
     gap: 6px;
 
-    .button {
+    * {
       flex-grow: 1;
+    }
+
+    a {
+      .button {
+        width: 100%;
+      }
     }
   }
 }
