@@ -1,10 +1,11 @@
 <template>
   <div class="card">
     <div class="card__img">
-      <img :src="img" />
+      <img :src="card.img" />
     </div>
     <div class="card__content">
-      <h1 class="card__title">{{ title }}</h1>
+      <h1 class="card__title">{{ card.title }}</h1>
+      <p class="card__price"> {{ card.price }}</p>
       <div class="card__actions">
         <MyButton flat>Подробнее</MyButton>
         <RouterLink to="/seat-booking/">
@@ -19,15 +20,10 @@
 import MyButton from "./MyButton.vue";
 
 const props = defineProps({
-  img: {
-    type: String,
-    default: "https://picsum.photos/400/200",
-  },
-
-  title: {
-    type: String,
-    default: "Film name",
-  },
+  card: {
+    type: Object,
+    required: true,
+  }
 });
 </script>
 
