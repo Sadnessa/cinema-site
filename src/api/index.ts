@@ -1,1 +1,1 @@
-export { filmList } from './filmList'
+export { filmList, type Film } from "./filmList";
