@@ -1,7 +1,7 @@
 <template>
   <section class="home">
     <div class="container">
-      <FilmCard v-for="(card, i) in cardsStore.cards" :card="card" :key="i"/>
+      <FilmCard class="film-card" v-for="(card, i) in cardsStore.cards" :card="card" :key="i"/>
     </div>
   </section>
 </template>
@@ -21,5 +21,9 @@ cardsStore.loadCards();
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+
+    .film-card {
+      width: 30%;
+    }
   }
 </style>
