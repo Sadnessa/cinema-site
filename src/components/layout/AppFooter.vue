@@ -1,6 +1,8 @@
 <template>
   <footer>
-    Co
+    <div class="container">
+      <p>&copy; MyFilms </p>
+    </div>
   </footer>
 </template>
 
