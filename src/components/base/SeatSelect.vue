@@ -67,6 +67,7 @@ const onSeatClick = (selectedSeat: number) => {
     width: 80px;
     border: solid 2px var(--primary);  
     text-align: center;
+    border-radius: 4px;
 
     &:disabled {
       background-color: var(--light);

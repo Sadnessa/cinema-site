@@ -10,7 +10,7 @@
       </div>
       <div class="card__actions">
         <MyButton flat>Подробнее</MyButton>
-        <RouterLink :to="{ path: '/seat-booking/', query: { film: card.id }}">
+        <RouterLink :to="{ path: '/seat-booking/', query: { film: card.id } }">
           <MyButton>Купить билет</MyButton>
         </RouterLink>
       </div>
