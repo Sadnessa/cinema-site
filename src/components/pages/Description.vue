@@ -5,7 +5,9 @@
       <div class="content">
         <h1>{{ card.title }}</h1>
         <p> {{ card.description }}</p>
-        <MyButton>Купить билет</MyButton>
+        <RouterLink :to="{ path: '/seat-booking/', query: { film: card.id }}">
+          <MyButton>Купить билет</MyButton>
+        </RouterLink>
       </div>
     </div>
   </section>
@@ -15,13 +17,16 @@
 import { useCards } from "../../store/store";
 import { useRoute } from "vue-router";
 import MyButton from "../base/MyButton.vue";
+import { computed } from "vue";
 
 const cardStore = useCards();
-const card = cardStore.cards[Number(useRoute().query.film) - 1];
+const route = useRoute();
+const card = computed(() => cardStore.cards[Number(route.query.film) - 1]);
 </script>
 
 <style lang="scss" scoped>
   .container {
     display: flex;
+    gap: 20px;
   }
 </style>

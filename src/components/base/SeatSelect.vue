@@ -18,36 +18,37 @@ import { computed, PropType } from "vue";
 const props = defineProps({
   seatsCount: Number,
 
-  bookedSeats: { 
+  bookedSeats: {
     type: Array as PropType<number[]>,
     required: true,
   },
 
-  selectedSeats: { 
+  selectedSeats: {
     type: Array as PropType<number[]>,
     required: true,
   },
 });
 
-const emits = defineEmits(['update:selectedSeats'])
+const emits = defineEmits(["update:selectedSeats"]);
 
 const selectedSeats = computed({
   get() {
-    return props.selectedSeats
+    return props.selectedSeats;
   },
 
   set(value) {
-    emits('update:selectedSeats', value)
-  }
-})
+    emits("update:selectedSeats", value);
+  },
+});
 
 const onSeatClick = (selectedSeat: number) => {
-  if(selectedSeats.value.includes(selectedSeat)) {
+  if (selectedSeats.value.includes(selectedSeat)) {
     selectedSeats.value = selectedSeats.value.filter((el) => {
-      return el !== selectedSeat
-    })
-  } 
-  selectedSeats.value.push(selectedSeat)
+      return el !== selectedSeat;
+    });
+  } else {
+    selectedSeats.value.push(selectedSeat);
+  }
 };
 </script>
 
@@ -65,13 +66,13 @@ const onSeatClick = (selectedSeat: number) => {
     background-color: var(--primary);
     padding: 20px;
     width: 80px;
-    border: solid 2px var(--primary);  
+    border: solid 2px var(--primary);
     text-align: center;
     border-radius: 4px;
 
     &:disabled {
       background-color: var(--light);
-      border: solid 2px var(--light);  
+      border: solid 2px var(--light);
       cursor: not-allowed;
     }
 
