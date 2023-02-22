@@ -10,7 +10,7 @@
       </div>
       <div class="card__actions">
         <MyButton flat>Подробнее</MyButton>
-        <RouterLink to="/seat-booking/">
+        <RouterLink :to="{ path: '/seat-booking/', query: { film: card.id }}">
           <MyButton>Купить билет</MyButton>
         </RouterLink>
       </div>
@@ -20,10 +20,12 @@
 
 <script setup lang="ts">
 import MyButton from "./MyButton.vue";
+import { type Film } from "../../api"
+import { PropType } from "vue";
 
 const props = defineProps({
   card: {
-    type: Object,
+    type: Object as PropType<Film>,
     required: true,
   },
 });
