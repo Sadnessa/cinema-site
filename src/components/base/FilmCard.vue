@@ -9,7 +9,9 @@
         <span class="card__price">{{ card.price }}</span>
       </div>
       <div class="card__actions">
-        <MyButton flat>Подробнее</MyButton>
+        <RouterLink :to="{ path: '/description/', query: { film: card.id } }">
+          <MyButton flat>Подробнее</MyButton>
+        </RouterLink>
         <RouterLink :to="{ path: '/seat-booking/', query: { film: card.id } }">
           <MyButton>Купить билет</MyButton>
         </RouterLink>
@@ -20,7 +22,7 @@
 
 <script setup lang="ts">
 import MyButton from "./MyButton.vue";
-import { type Film } from "../../api"
+import { type Film } from "../../api";
 import { PropType } from "vue";
 
 const props = defineProps({
