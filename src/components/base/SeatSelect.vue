@@ -2,11 +2,12 @@
   <div class="seat-select">
     <button
       class="seat"
-      v-for="i in seatsCount"
-      @click="onSeatClick(i)"
-      :disabled="bookedSeats?.includes(i)"
+      v-for="seatNumber in seatsCount"
+      @click="onSeatClick(seatNumber)"
+      :disabled="bookedSeats.includes(seatNumber)"
+      :class="selectedSeats.includes(seatNumber) ? 'seat--selected' : ''"
     >
-      {{ i }}
+      {{ seatNumber }}
     </button>
   </div>
 </template>
@@ -16,7 +17,12 @@ import { computed, PropType } from "vue";
 
 const props = defineProps({
   seatsCount: Number,
-  bookedSeats: Array as PropType<number[]>,
+
+  bookedSeats: { 
+    type: Array as PropType<number[]>,
+    required: true,
+  },
+
   selectedSeats: { 
     type: Array as PropType<number[]>,
     required: true,
@@ -66,6 +72,10 @@ const onSeatClick = (selectedSeat: number) => {
       background-color: var(--light);
       border: solid 2px var(--light);  
       cursor: not-allowed;
+    }
+
+    &--selected {
+      background-color: red;
     }
   }
 }
