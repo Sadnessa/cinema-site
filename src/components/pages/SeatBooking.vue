@@ -5,17 +5,17 @@
         <RouterLink to="/">
           <MyButton>Назад</MyButton>
         </RouterLink>
-        <h1>Film title</h1>
+        <h1>{{card.title}}</h1>
       </div>
       <SeatSelect
-        :seatsCount="40"
-        :bookedSeats="bookedSeats"
+        :seatsCount="card.seats.count"
+        :bookedSeats="card.seats.booked"
         v-model:selectedSeats="selectedSeats"
       />
       <div class="column">
         <p>
           К оплате:
-          {{ `250 x ${selectedSeats.length} = ${250 * selectedSeats.length}` }}
+          {{ `${card.price} x ${selectedSeats.length} = ${card.price * selectedSeats.length}` }}
         </p>
         <MyButton class="button" @click="onBookClick">Забронировать</MyButton>
       </div>
@@ -28,12 +28,15 @@ import SeatSelect from "../base/SeatSelect.vue";
 import MyButton from "../base/MyButton.vue";
 import { ref } from "vue";
 import { useCards } from "../../store/store";
+import { useRoute } from 'vue-router'
+
+const cardStore = useCards();
+const card = cardStore.cards[Number(useRoute().query.film)-1];
 
 const selectedSeats = ref<number[]>([]);
-const bookedSeats = ref<number[]>([30, 4, 6]);
 
 const onBookClick = () => {
-  bookedSeats.value = bookedSeats.value.concat(selectedSeats.value);
+  card.seats.booked = card.seats.booked.concat(selectedSeats.value);
   selectedSeats.value = [];
 };
 </script>
