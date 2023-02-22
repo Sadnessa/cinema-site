@@ -3,7 +3,7 @@
     <button
       class="seat"
       v-for="i in seatsCount"
-      @click="onSeatClick"
+      @click="onSeatClick(i)"
       :disabled="bookedSeats?.includes(i)"
     >
       {{ i }}
@@ -12,14 +12,37 @@
 </template>
 
 <script setup lang="ts">
-import { PropType } from "vue";
+import { computed, PropType } from "vue";
 
 const props = defineProps({
   seatsCount: Number,
   bookedSeats: Array as PropType<number[]>,
+  selectedSeats: { 
+    type: Array as PropType<number[]>,
+    required: true,
+  },
 });
 
-const onSeatClick = () => {};
+const emits = defineEmits(['update:selectedSeats'])
+
+const selectedSeats = computed({
+  get() {
+    return props.selectedSeats
+  },
+
+  set(value) {
+    emits('update:selectedSeats', value)
+  }
+})
+
+const onSeatClick = (selectedSeat: number) => {
+  if(selectedSeats.value.includes(selectedSeat)) {
+    selectedSeats.value = selectedSeats.value.filter((el) => {
+      return el !== selectedSeat
+    })
+  } 
+  selectedSeats.value.push(selectedSeat)
+};
 </script>
 
 <style lang="scss" scoped>
