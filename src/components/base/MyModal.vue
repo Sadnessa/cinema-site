@@ -5,7 +5,7 @@
         <slot name="header"></slot>
       </h1>
       <hr noshade />
-      <p><slot /></p>
+      <slot />
       <div class="modal__buttons">
         <MyButton flat @click="onDecline">Отклонить</MyButton>
         <MyButton @click="$emit('submitClick')">Подтвердить</MyButton>
