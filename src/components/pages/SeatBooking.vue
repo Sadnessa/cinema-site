@@ -19,8 +19,14 @@
             }`
           }}
         </p>
-        <MyButton class="button" @click="onBookClick">Забронировать</MyButton>
+        <MyButton class="button" @click="onBookClick" :disabled="selectedSeats.length == 0">Забронировать</MyButton>
       </div>
+      <MyModal v-model:openModal="doShowModal" @submitClick="submitClick">
+        <template #header>
+          Fdkfdkk
+        </template>
+        kfkfkfkf
+      </MyModal>
     </div>
   </section>
 </template>
@@ -28,6 +34,7 @@
 <script setup lang="ts">
 import SeatSelect from "../base/SeatSelect.vue";
 import MyButton from "../base/MyButton.vue";
+import MyModal from "../base/MyModal.vue";
 import { computed, ref } from "vue";
 import { useCards } from "../../store/store";
 import { useRoute } from "vue-router";
@@ -37,11 +44,17 @@ const route = useRoute();
 const card = computed(() => cardStore.cards[Number(route.query.film) - 1]);
 
 const selectedSeats = ref<number[]>([]);
+const doShowModal = ref<boolean>(false);
 
 const onBookClick = () => {
+  doShowModal.value = !doShowModal.value;
+};
+
+const submitClick = () => {
   card.value.seats.booked = card.value.seats.booked.concat(selectedSeats.value);
   selectedSeats.value = [];
-};
+  doShowModal.value = !doShowModal.value;
+}
 </script>
 
 <style lang="scss" scoped>
