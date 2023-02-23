@@ -26,7 +26,7 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits(["update:openModal"]);
+const emits = defineEmits(["update:openModal", 'submitClick']);
 
 const openModal = computed({
   get() {
@@ -54,7 +54,7 @@ const onDecline = () => {
   height: 100vh;
 
   &__card {
-    max-width: 300px;
+    width: 400px;
     background-color: var(--white);
     border-radius: 6px;
     padding: 20px;
@@ -62,6 +62,15 @@ const onDecline = () => {
 
     hr {
       color: var(--light);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 20px;
+
+    .button {
+      flex-grow: 1;
     }
   }
 

@@ -27,6 +27,8 @@
 
     &:disabled {
       background-color: var(--light);
+      border: solid 2px var(--light);
+      cursor: not-allowed;
     }
   }
 </style>
