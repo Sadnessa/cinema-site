@@ -1,5 +1,5 @@
 <template>
-  <button class="button" :class="flat ? 'button--flat' : ''">
+  <button class="button" :class="flat ? 'button--flat' : ''" :disabled="disabled">
     <slot/>
   </button>
 </template>
@@ -7,6 +7,7 @@
 <script setup lang="ts">
   const props = defineProps({
     flat: Boolean,
+    disabled: Boolean,
   })
 </script>
 
@@ -22,6 +23,10 @@
     &--flat {
       background-color: transparent;
       color: var(--primary); 
+    }
+
+    &:disabled {
+      background-color: var(--light);
     }
   }
 </style>
