@@ -23,9 +23,12 @@
       </div>
       <MyModal v-model:openModal="doShowModal" @submitClick="submitClick">
         <template #header>
-          Fdkfdkk
+          Подтверждение
         </template>
-        kfkfkfkf
+        <p>Выбранные места: {{ selectedSeats.join(", ") }}</p>
+        <p>Количество билетов: {{ selectedSeats.length }}</p>
+        <p>К оплате: {{ card.price * selectedSeats.length }} </p>
+        <p>Забронировать? </p>
       </MyModal>
     </div>
   </section>
