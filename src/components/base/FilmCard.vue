@@ -73,7 +73,7 @@ const renderCardTitle = (card: Film) => {
   }
 
   &__title {
-    margin: 0;
+    white-space: nowrap;
   }
 
   &__actions {

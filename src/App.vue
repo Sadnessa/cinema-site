@@ -32,6 +32,14 @@ section {
   padding: 20px;
 }
 
+h1 {
+  margin: 0;
+}
+
+h1, p {
+  color: var(--dark);
+}
+
 @include xl {
   .container {
     max-width: 1320px;

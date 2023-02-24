@@ -19,15 +19,18 @@
             }`
           }}
         </p>
-        <MyButton class="button" @click="onBookClick" :disabled="selectedSeats.length == 0">Забронировать</MyButton>
+        <MyButton
+          class="button"
+          @click="onBookClick"
+          :disabled="selectedSeats.length == 0"
+          >Забронировать</MyButton
+        >
       </div>
       <MyModal v-model:openModal="doShowModal" @submitClick="submitClick">
-        <template #header>
-          Забронировать?
-        </template>
-        <p>Выбранные места: {{ selectedSeats }}</p>
+        <template #header> Забронировать? </template>
+        <p>Выбранные места: {{ renderSelectedSeats() }}</p>
         <p>Количество билетов: {{ selectedSeats.length }}</p>
-        <p>К оплате: {{ film.price * selectedSeats.length }} </p>
+        <p>К оплате: {{ film.price * selectedSeats.length }}</p>
       </MyModal>
     </div>
   </section>
@@ -45,21 +48,30 @@ import { Film } from "../../api";
 const { loadFilm } = useFilms();
 const route = useRoute();
 
-const selectedSeats = ref<{ row: number, seat: number }[]>([]);
+const selectedSeats = ref<{ row: number; seat: number }[]>([]);
 const doShowModal = ref<boolean>(false);
 
 const film = ref<Film>();
-loadFilm(Number(route.query.film)).then((value) => film.value = value);
+loadFilm(Number(route.query.film)).then((value) => (film.value = value));
 
 const onBookClick = () => {
   doShowModal.value = !doShowModal.value;
 };
 
 const submitClick = () => {
-  film.value!.seats.booked = film.value!.seats.booked.concat(selectedSeats.value);
+  film.value!.seats.booked = film.value!.seats.booked.concat(
+    selectedSeats.value
+  );
   selectedSeats.value = [];
   doShowModal.value = !doShowModal.value;
-}
+};
+
+const renderSelectedSeats = () => {
+  const render = selectedSeats.value.map((el) => {
+    return `ряд: ${el.row}, место: ${el.seat}`;
+  });
+  return render.join("; ");
+};
 </script>
 
 <style lang="scss" scoped>
@@ -68,10 +80,6 @@ const submitClick = () => {
   align-items: center;
   margin-bottom: 20px;
   gap: 20px;
-
-  h1 {
-    margin: 0;
-  }
 }
 
 .column {

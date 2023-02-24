@@ -56,10 +56,6 @@ section {
   align-items: center;
   gap: 20px;
   margin-bottom: 20px;
-
-  h1 {
-    margin: 0;
-  }
 }
 
 .content {
@@ -103,6 +99,7 @@ section {
       width: auto !important;
       overflow-x: visible !important;
       padding-left: 20px !important;
+      padding-top: 0;
     }
   }
 }
@@ -115,6 +112,7 @@ section {
       width: auto !important;
       overflow-x: visible !important;
       padding-left: 20px !important;
+      padding-top: 0
     }
   }
 }
