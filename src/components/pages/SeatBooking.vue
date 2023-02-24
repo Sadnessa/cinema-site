@@ -6,8 +6,8 @@
         <h1>{{ card.title }}</h1>
       </div>
       <SeatSelect
-        :seatsCount="card.seats.count"
         :bookedSeats="card.seats.booked"
+        :row="card.seats.seatsInRow"
         v-model:selectedSeats="selectedSeats"
       />
       <div class="column">
@@ -45,7 +45,7 @@ const cardStore = useCards();
 const route = useRoute();
 const card = computed(() => cardStore.cards[Number(route.query.film) - 1]);
 
-const selectedSeats = ref<number[]>([]);
+const selectedSeats = ref<{ row: number, seat: number }[]>([]);
 const doShowModal = ref<boolean>(false);
 
 const onBookClick = () => {
