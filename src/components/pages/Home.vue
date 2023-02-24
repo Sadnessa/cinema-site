@@ -29,6 +29,7 @@ cardsStore.loadAllFilms();
 
   .film-card {
     width: 30%;
+    flex-grow: 1;
   }
 }
 

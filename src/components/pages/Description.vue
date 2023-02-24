@@ -6,16 +6,20 @@
         <h1>{{ film.title }}</h1>
       </div>
       <div class="content">
-        <img :src="film.img" />
-        <div class="about">
+        <div class="content__img">
+          <img :src="film.img" />
+        </div>
+        <div class="content__about">
           <h1>{{ film.title }}</h1>
           <p>{{ film.description }}</p>
-          <RouterLink
-            :to="{ path: '/seat-booking/', query: { film: film.id } }"
-          >
-            <MyButton>Купить билет</MyButton>
-          </RouterLink>
-          <span> {{ film.price }} </span>
+          <div class="actions">
+            <RouterLink
+              :to="{ path: '/seat-booking/', query: { film: film.id } }"
+            >
+              <MyButton>Купить билет</MyButton>
+            </RouterLink>
+            <span> {{ film.price }} </span>
+          </div>
         </div>
       </div>
     </div>
@@ -26,17 +30,27 @@
 import { useFilms } from "../../store/store";
 import { useRoute } from "vue-router";
 import MyButton from "../base/MyButton.vue";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import { Film } from "../../api";
 
 const { loadFilm } = useFilms();
 const route = useRoute();
 
 const film = ref<Film>();
-loadFilm(Number(route.query.film)).then((value) => film.value = value);
+loadFilm(Number(route.query.film)).then((value) => (film.value = value));
 </script>
 
 <style lang="scss" scoped>
+section {
+  display: flex;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -51,5 +65,55 @@ loadFilm(Number(route.query.film)).then((value) => film.value = value);
 .content {
   display: flex;
   gap: 20px;
+  flex-grow: 1;
+  background-color: var(--white);
+  border-radius: 6px;
+  max-height: 500px;
+  overflow: hidden;
+
+  &__about {
+    width: 30%;
+    padding: 20px;
+    padding-left: 0;
+    overflow-x: scroll;
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__img {
+    flex-grow: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@include sm {
+  .content {
+    flex-direction: column;
+    max-height: 100% !important;
+    &__about {
+      width: 100% !important;
+      overflow-x: visible;
+    }
+  }
+}
+
+@include xs {
+  .content {
+    flex-direction: column;
+    max-height: 100% !important;
+    &__about {
+      width: 100% !important;
+      overflow-x: visible;
+    }
+  }
 }
 </style>

@@ -59,6 +59,7 @@ const props = defineProps({
     align-items: center;
     justify-content: space-between;
     margin-bottom: 14px;
+    gap: 20px;
   }
 
   &__title {
