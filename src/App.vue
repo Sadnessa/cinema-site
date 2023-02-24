@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import AppHeader from "./components/layout/AppHeader.vue";
-import AppFooter from "./components/layout/AppFooter.vue"
+import AppFooter from "./components/layout/AppFooter.vue";
 </script>
 
 <style lang="scss">
@@ -28,6 +28,37 @@ section {
 }
 
 .container {
-  padding: 20px 40px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@include xl {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+@include lg {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@include md {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@include sm {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@include xs {
+  .container {
+    max-width: 540px;
+  }
 }
 </style>
