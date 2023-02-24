@@ -3,7 +3,7 @@
     <div class="seats-row" v-for="(rowNumber, i) in row" :key="i">
       <p class="row-number">{{ i + 1 }}</p>
       <div class="seats">
-        <button
+        <MyButton
           class="seat"
           v-for="seatNumber in rowNumber"
           :class="selectedClass(i + 1, seatNumber)"
@@ -11,14 +11,15 @@
           @click="onSeatClick(i + 1, seatNumber)"
         >
           {{ seatNumber }}
-        </button>
+        </MyButton>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, PropType, SelectHTMLAttributes } from "vue";
+import MyButton from "./MyButton.vue";
+import { computed, PropType } from "vue";
 import { type Film } from "../../api";
 
 const props = defineProps({
@@ -99,19 +100,9 @@ const isSeatDisabled = (row: number, seat: number) => {
       flex-grow: 1;
 
       .seat {
-        background-color: var(--primary);
-        border: solid 2px var(--primary);
-        text-align: center;
-        border-radius: 4px;
-
-        &:disabled {
-          background-color: var(--light);
-          border: solid 2px var(--light);
-          cursor: not-allowed;
-        }
-
         &--selected {
-          background-color: red;
+          background-color: var(--accent);
+          border: solid 2px var(--dark);
         }
       }
     }

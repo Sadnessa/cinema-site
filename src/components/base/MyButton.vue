@@ -26,8 +26,9 @@
     }
 
     &:disabled {
-      background-color: var(--light);
-      border: solid 2px var(--light);
+      background-color: var(--dark);
+      opacity: 0.4;
+      border: solid 2px var(--dark);
       cursor: not-allowed;
     }
   }

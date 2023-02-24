@@ -5,7 +5,9 @@
     </div>
     <div class="card__content">
       <div class="card__header">
-        <h1 class="card__title">{{ card.title }}</h1>
+        <h1 class="card__title">
+          {{ renderCardTitle(card) }}
+        </h1>
         <span class="card__price">{{ card.price }}</span>
       </div>
       <div class="card__actions">
@@ -23,7 +25,7 @@
 <script setup lang="ts">
 import MyButton from "./MyButton.vue";
 import { type Film } from "../../api";
-import { PropType } from "vue";
+import { PropType, render } from "vue";
 
 const props = defineProps({
   card: {
@@ -31,10 +33,17 @@ const props = defineProps({
     required: true,
   },
 });
+
+const renderCardTitle = (card: Film) => {
+  const MAX_VISIBLE_LETTERS = 30;
+  return card.title.length >= MAX_VISIBLE_LETTERS ? card.title.slice(0, MAX_VISIBLE_LETTERS) + "..." : card.title;
+};
 </script>
 
 <style lang="scss" scoped>
 .card {
+  display: flex;
+  flex-direction: column;
   background-color: var(--white);
   overflow: hidden;
   border-radius: 6px;
@@ -52,6 +61,7 @@ const props = defineProps({
 
   &__content {
     padding: 10px 20px;
+    flex-grow: 1;
   }
 
   &__header {

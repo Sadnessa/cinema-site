@@ -100,8 +100,9 @@ section {
     flex-direction: column;
     max-height: 100% !important;
     &__about {
-      width: 100% !important;
-      overflow-x: visible;
+      width: auto !important;
+      overflow-x: visible !important;
+      padding-left: 20px !important;
     }
   }
 }
@@ -111,8 +112,9 @@ section {
     flex-direction: column;
     max-height: 100% !important;
     &__about {
-      width: 100% !important;
-      overflow-x: visible;
+      width: auto !important;
+      overflow-x: visible !important;
+      padding-left: 20px !important;
     }
   }
 }
