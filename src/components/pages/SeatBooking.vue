@@ -23,8 +23,9 @@
           class="button"
           @click="onBookClick"
           :disabled="selectedSeats.length == 0"
-          >Забронировать</MyButton
         >
+          Забронировать
+        </MyButton>
       </div>
       <MyModal v-model:openModal="doShowModal" @submitClick="submitClick">
         <template #header> Забронировать? </template>

@@ -15,7 +15,7 @@
           <MyButton flat>Подробнее</MyButton>
         </RouterLink>
         <RouterLink :to="{ path: '/seat-booking/', query: { film: card.id } }">
-          <MyButton>Купить билет</MyButton>
+          <MyButton>Купить билет </MyButton>
         </RouterLink>
       </div>
     </div>
@@ -36,7 +36,9 @@ const props = defineProps({
 
 const renderCardTitle = (card: Film) => {
   const MAX_VISIBLE_LETTERS = 30;
-  return card.title.length >= MAX_VISIBLE_LETTERS ? card.title.slice(0, MAX_VISIBLE_LETTERS) + "..." : card.title;
+  return card.title.length >= MAX_VISIBLE_LETTERS
+    ? card.title.slice(0, MAX_VISIBLE_LETTERS) + "..."
+    : card.title;
 };
 </script>
 

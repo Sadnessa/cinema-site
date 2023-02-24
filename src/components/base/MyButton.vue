@@ -1,6 +1,6 @@
 <template>
   <button class="button" :class="flat ? 'button--flat' : ''" :disabled="disabled">
-    <slot/>
+    <slot/> 
   </button>
 </template>
 

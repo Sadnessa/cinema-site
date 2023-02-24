@@ -11,6 +11,7 @@
         </div>
         <div class="content__about">
           <h1>{{ film.title }}</h1>
+          <hr noshade>
           <p>{{ film.description }}</p>
           <div class="actions">
             <RouterLink
@@ -72,6 +73,10 @@ section {
     padding: 20px;
     padding-left: 0;
     overflow-x: scroll;
+
+    hr {
+      color: var(--light);
+    }
 
     .actions {
       display: flex;
