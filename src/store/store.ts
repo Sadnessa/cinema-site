@@ -2,17 +2,26 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { filmList, type Film } from "../api";
 
-export const useCards = defineStore("cards", () => {
-  const cards = ref<Film[]>([]);
+export const useFilms = defineStore("films", () => {
+  const allFilms = ref<Film[]>([]);
 
-  const loadCards = () => {
+  const loadAllFilms = () => {
     filmList().then((value) => {
-      cards.value = value;
+      allFilms.value = value;
     });
   };
 
+  const loadFilm = (film: number) => {
+    return filmList().then((value) => {
+      return value.find((el) => {
+        return el.id === film;
+      });
+    });
+  };  
+
   return {
-    cards,
-    loadCards,
+    allFilms,
+    loadAllFilms,
+    loadFilm,
   };
 });

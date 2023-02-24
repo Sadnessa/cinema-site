@@ -1,21 +1,21 @@
 <template>
   <section class="seat-booking">
-    <div class="container">
+    <div class="container" v-if="film">
       <div class="header">
         <MyButton @click="$router.back()">Назад</MyButton>
-        <h1>{{ card.title }}</h1>
+        <h1>{{ }}</h1>
       </div>
       <SeatSelect
-        :bookedSeats="card.seats.booked"
-        :row="card.seats.seatsInRow"
+        :bookedSeats="film.seats.booked"
+        :row="film.seats.seatsInRow"
         v-model:selectedSeats="selectedSeats"
       />
       <div class="column">
         <p>
           К оплате:
           {{
-            `${card.price} x ${selectedSeats.length} = ${
-              card.price * selectedSeats.length
+            `${film.price} x ${selectedSeats.length} = ${
+              film.price * selectedSeats.length
             }`
           }}
         </p>
@@ -27,7 +27,7 @@
         </template>
         <p>Выбранные места: {{ selectedSeats.join(", ") }}</p>
         <p>Количество билетов: {{ selectedSeats.length }}</p>
-        <p>К оплате: {{ card.price * selectedSeats.length }} </p>
+        <p>К оплате: {{ film.price * selectedSeats.length }} </p>
       </MyModal>
     </div>
   </section>
@@ -37,23 +37,26 @@
 import SeatSelect from "../base/SeatSelect.vue";
 import MyButton from "../base/MyButton.vue";
 import MyModal from "../base/MyModal.vue";
-import { computed, ref } from "vue";
-import { useCards } from "../../store/store";
+import { ref } from "vue";
+import { useFilms } from "../../store/store";
 import { useRoute } from "vue-router";
+import { Film } from "../../api";
 
-const cardStore = useCards();
+const { loadFilm } = useFilms();
 const route = useRoute();
-const card = computed(() => cardStore.cards[Number(route.query.film) - 1]);
 
 const selectedSeats = ref<{ row: number, seat: number }[]>([]);
 const doShowModal = ref<boolean>(false);
+
+const film = ref<Film>();
+loadFilm(Number(route.query.film)).then((value) => film.value = value);
 
 const onBookClick = () => {
   doShowModal.value = !doShowModal.value;
 };
 
 const submitClick = () => {
-  card.value.seats.booked = card.value.seats.booked.concat(selectedSeats.value);
+  film.value!.seats.booked = film.value!.seats.booked.concat(selectedSeats.value);
   selectedSeats.value = [];
   doShowModal.value = !doShowModal.value;
 }

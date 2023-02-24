@@ -1,18 +1,18 @@
 <template>
   <section class="home">
     <div class="container">
-      <FilmCard class="film-card" v-for="(card, i) in cardsStore.cards" :card="card" :key="i"/>
+      <FilmCard class="film-card" v-for="(film, i) in cardsStore.allFilms" :card="film" :key="i"/>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
 import FilmCard from "../base/FilmCard.vue";
-import { useCards } from "../../store/store";
+import { useFilms } from "../../store/store";
 
-const cardsStore = useCards();
+const cardsStore = useFilms();
 
-cardsStore.loadCards();
+cardsStore.loadAllFilms();
 </script>
 
 <style lang="scss" scoped>

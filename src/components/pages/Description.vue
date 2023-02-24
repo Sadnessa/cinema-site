@@ -1,21 +1,21 @@
 <template>
   <section class="description">
-    <div class="container">
+    <div class="container" v-if="film">
       <div class="header">
         <MyButton @click="$router.back()">Назад</MyButton>
-        <h1>{{ card.title }}</h1>
+        <h1>{{ film.title }}</h1>
       </div>
       <div class="content">
-        <img :src="card.img" />
+        <img :src="film.img" />
         <div class="about">
-          <h1>{{ card.title }}</h1>
-          <p>{{ card.description }}</p>
+          <h1>{{ film.title }}</h1>
+          <p>{{ film.description }}</p>
           <RouterLink
-            :to="{ path: '/seat-booking/', query: { film: card.id } }"
+            :to="{ path: '/seat-booking/', query: { film: film.id } }"
           >
             <MyButton>Купить билет</MyButton>
           </RouterLink>
-          <span> {{ card.price }} </span>
+          <span> {{ film.price }} </span>
         </div>
       </div>
     </div>
@@ -23,14 +23,17 @@
 </template>
 
 <script setup lang="ts">
-import { useCards } from "../../store/store";
+import { useFilms } from "../../store/store";
 import { useRoute } from "vue-router";
 import MyButton from "../base/MyButton.vue";
-import { computed } from "vue";
+import { computed, ref } from "vue";
+import { Film } from "../../api";
 
-const cardStore = useCards();
+const { loadFilm } = useFilms();
 const route = useRoute();
-const card = computed(() => cardStore.cards[Number(route.query.film) - 1]);
+
+const film = ref<Film>();
+loadFilm(Number(route.query.film)).then((value) => film.value = value);
 </script>
 
 <style lang="scss" scoped>
