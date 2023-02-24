@@ -14,7 +14,7 @@ const films = [
     price: 66,
     img: "https://picsum.photos/900/400?random=1",
     description: "fkjdkfjskfjskfjskfsjfksfksjskjfks",
-    seats: { count: 40, booked: [{ row: 1, seat: 1, }], seatsInRow: [20, 30, 30, 30]  },
+    seats: { count: 40, booked: [{ row: 1, seat: 1, }], seatsInRow: [15, 20, 20, 20, 20, 20, 10]  },
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const films = [
     price: 66,
     img: "https://picsum.photos/900/400?random=2",
     description: "fkjdkfjskfjskfjskfsjfksfksjskjfks",
-    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [20, 30, 30, 30] },
+    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [15, 20, 20, 20, 20, 20, 10] },
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const films = [
     price: 66,
     img: "https://picsum.photos/900/400?random=3",
     description: "fkjdkfjskfjskfjskfsjfksfksjskjfks",
-    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [20, 30, 30, 30] },
+    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [15, 20, 20, 20, 20, 20, 10] },
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const films = [
     price: 66,
     img: "https://picsum.photos/900/400?random=4",
     description: "fkjdkfjskfjskfjskfsjfksfksjskjfks",
-    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [20, 30, 30, 30] },
+    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [15, 20, 20, 20, 20, 20, 10] },
   },
   {
     id: 5,
@@ -46,7 +46,7 @@ const films = [
     price: 66,
     img: "https://picsum.photos/900/400?random=5",
     description: "fkjdkfjskfjskfjskfsjfksfksjskjfks",
-    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [20, 30, 30, 30] },
+    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [15, 20, 20, 20, 20, 20, 10] },
   },
   {
     id: 6,
@@ -54,7 +54,7 @@ const films = [
     price: 66,
     img: "https://picsum.photos/900/400?random=6",
     description: "fkjdkfjskfjskfjskfsjfksfksjskjfks",
-    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [20, 30, 30, 30] },
+    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [15, 20, 20, 20, 20, 20, 10] },
   },
   {
     id: 7,
@@ -62,7 +62,7 @@ const films = [
     price: 66,
     img: "https://picsum.photos/900/400?random=7",
     description: "fkjdkfjskfjskfjskfsjfksfksjskjfks",
-    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [20, 30, 30, 30] },
+    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [15, 20, 20, 20, 20, 20, 10] },
   },
   {
     id: 8,
@@ -70,7 +70,7 @@ const films = [
     price: 66,
     img: "https://picsum.photos/900/400?random=8",
     description: "fkjdkfjskfjskfjskfsjfksfksjskjfks",
-    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [20, 30, 30, 30] },
+    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [15, 20, 20, 20, 20, 20, 10] },
   },
   {
     id: 9,
@@ -78,7 +78,7 @@ const films = [
     price: 66,
     img: "https://picsum.photos/900/400?random=9",
     description: "fkjdkfjskfjskfjskfsjfksfksjskjfks",
-    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [20, 30, 30, 30] },
+    seats: { count: 40, booked: [{ row: 1, seat: 3 }], seatsInRow: [15, 20, 20, 20, 20, 20, 10] },
   },
 ];
 

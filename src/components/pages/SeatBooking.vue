@@ -3,7 +3,7 @@
     <div class="container" v-if="film">
       <div class="header">
         <MyButton @click="$router.back()">Назад</MyButton>
-        <h1>{{ }}</h1>
+        <h1>{{ film.title }}</h1>
       </div>
       <SeatSelect
         :bookedSeats="film.seats.booked"
@@ -25,7 +25,7 @@
         <template #header>
           Забронировать?
         </template>
-        <p>Выбранные места: {{ selectedSeats.join(", ") }}</p>
+        <p>Выбранные места: {{ selectedSeats }}</p>
         <p>Количество билетов: {{ selectedSeats.length }}</p>
         <p>К оплате: {{ film.price * selectedSeats.length }} </p>
       </MyModal>

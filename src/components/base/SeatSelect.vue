@@ -1,16 +1,18 @@
 <template>
   <div class="seat-select">
     <div class="seats-row" v-for="(rowNumber, i) in row" :key="i">
-      {{ i + 1 }}
-      <button
-        class="seat"
-        v-for="seatNumber in rowNumber"
-        :class="selectedClass(i + 1, seatNumber)"
-        :disabled="isSeatDisabled(i + 1, seatNumber)"
-        @click="onSeatClick(i + 1, seatNumber)"
-      >
-        {{ seatNumber }}
-      </button>
+      <p class="row-number">{{ i + 1 }}</p>
+      <div class="seats">
+        <button
+          class="seat"
+          v-for="seatNumber in rowNumber"
+          :class="selectedClass(i + 1, seatNumber)"
+          :disabled="isSeatDisabled(i + 1, seatNumber)"
+          @click="onSeatClick(i + 1, seatNumber)"
+        >
+          {{ seatNumber }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -70,8 +72,8 @@ const selectedClass = (row: number, seat: number) => {
 };
 
 const isSeatDisabled = (row: number, seat: number) => {
-  return props.bookedSeats.some((el) => el.row == row && el.seat == seat)
-}
+  return props.bookedSeats.some((el) => el.row == row && el.seat == seat);
+};
 </script>
 
 <style lang="scss" scoped>
@@ -79,34 +81,39 @@ const isSeatDisabled = (row: number, seat: number) => {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 24px;
   background-color: var(--white);
   border-radius: 6px;
   padding: 20px;
 
   .seats-row {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px;
-  }
+    justify-content: space-between;
+    width: 100%;
 
-  .seat {
-    background-color: var(--primary);
-    padding: 20px;
-    width: 5%;
-    border: solid 2px var(--primary);
-    text-align: center;
-    border-radius: 4px;
+    .seats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      flex-grow: 1;
 
-    &:disabled {
-      background-color: var(--light);
-      border: solid 2px var(--light);
-      cursor: not-allowed;
-    }
+      .seat {
+        background-color: var(--primary);
+        border: solid 2px var(--primary);
+        text-align: center;
+        border-radius: 4px;
 
-    &--selected {
-      background-color: red;
+        &:disabled {
+          background-color: var(--light);
+          border: solid 2px var(--light);
+          cursor: not-allowed;
+        }
+
+        &--selected {
+          background-color: red;
+        }
+      }
     }
   }
 }
