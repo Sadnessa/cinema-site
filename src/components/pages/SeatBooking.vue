@@ -16,17 +16,28 @@
           {{
             `${film.price} x ${selectedSeats.length} = ${
               film.price * selectedSeats.length
-            }`
+            } ${film.currency}`
           }}
         </p>
-        <MyButton
-          class="button"
-          @click="onBookClick"
-          :disabled="selectedSeats.length == 0"
-        >
-          Забронировать
-        </MyButton>
+        <div class="actions">
+          <MyButton
+            class="button"
+            flat
+            @click="clearSelection"
+            v-if="selectedSeats.length > 0"
+          >
+            Отменить выбор
+          </MyButton>
+          <MyButton
+            class="button"
+            @click="onBookClick"
+            :disabled="selectedSeats.length == 0"
+          >
+            Забронировать
+          </MyButton>
+        </div>
       </div>
+
       <MyModal v-model:openModal="doShowModal" @submitClick="submitClick">
         <template #header> Забронировать? </template>
         <p>Выбранные места:</p>
@@ -36,7 +47,7 @@
           </div>
         </div>
         <p>Количество билетов: {{ selectedSeats.length }}</p>
-        <p>К оплате: {{ film.price * selectedSeats.length }}</p>
+        <p>К оплате: {{ film.price * selectedSeats.length }}{{ film.currency }}</p>
       </MyModal>
     </div>
   </section>
@@ -78,6 +89,10 @@ const renderSelectedSeats = () => {
   });
   return render;
 };
+
+const clearSelection = () => {
+  selectedSeats.value = [];
+};
 </script>
 
 <style lang="scss" scoped>
@@ -100,6 +115,7 @@ const renderSelectedSeats = () => {
 
   .button {
     margin-top: 20px;
+    margin-right: 10px;
   }
 }
 

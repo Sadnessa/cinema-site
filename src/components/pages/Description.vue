@@ -19,7 +19,7 @@
             >
               <MyButton>Купить билет</MyButton>
             </RouterLink>
-            <span> {{ film.price }} </span>
+            <span> {{ film.price + film.currency}} </span>
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@
     font-family: 'Montserrat', sans-serif;
 
     &--flat {
-      background-color: transparent;
+      background-color: var(--white);
       color: var(--primary); 
     }
 

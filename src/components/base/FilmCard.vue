@@ -8,7 +8,7 @@
         <h1 class="card__title" :title="card.title">
           {{ card.title }}
         </h1>
-        <span class="card__price">{{ card.price }}</span>
+        <span class="card__price">{{ card.price + card.currency }}</span>
       </div>
       <div class="card__actions">
         <RouterLink :to="{ path: '/description/', query: { film: card.id } }">
