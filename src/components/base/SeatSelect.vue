@@ -1,6 +1,7 @@
 <template>
   <div class="seat-select">
-    <div class="seats-row" v-for="(rowNumber, i) in row" :key="i">
+    <div class="wrapper">
+      <div class="seats-row" v-for="(rowNumber, i) in row" :key="i">
       <p class="row-number">{{ i + 1 }}</p>
       <div class="seats">
         <MyButton
@@ -13,6 +14,7 @@
           {{ seatNumber }}
         </MyButton>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -79,19 +81,26 @@ const isSeatDisabled = (row: number, seat: number) => {
 
 <style lang="scss" scoped>
 .seat-select {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
   background-color: var(--white);
   border-radius: 6px;
-  padding: 20px;
   overflow-y: auto;
+
+  .wrapper {
+    width: min-content;
+    min-width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    box-sizing: border-box;
+  }
 
   .seats-row {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    gap: 20px;
 
     .seats {
       display: flex;
