@@ -20,10 +20,12 @@
     border: solid 1px var(--primary);  
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
 
     &--flat {
-      background-color: var(--white);
+      background-color: transparent;
       color: var(--primary); 
+      border: solid 1px transparent;  
     }
 
     &:disabled {
