@@ -70,11 +70,8 @@ const onDecline = () => {
 
   &__buttons {
     display: flex;
+    justify-content: flex-end;
     gap: 20px;
-
-    .button {
-      flex-grow: 1;
-    }
   }
 
   &__overlay {
