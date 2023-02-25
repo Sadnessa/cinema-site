@@ -19,6 +19,7 @@
     border-radius: 4px;
     border: solid 2px var(--primary);  
     cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
 
     &--flat {
       background-color: transparent;
