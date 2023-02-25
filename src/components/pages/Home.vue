@@ -22,32 +22,26 @@ cardsStore.loadAllFilms();
 
 <style lang="scss" scoped>
 .container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-
-  .film-card {
-    width: 30%;
-    flex-grow: 1;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 @include md {
-  .film-card {
-    width: 40% !important;
+  .container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @include sm {
-  .film-card {
-    width: 40% !important;
+  .container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @include xs {
-  .film-card {
-    width: 100% !important;
+  .container {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 </style>
