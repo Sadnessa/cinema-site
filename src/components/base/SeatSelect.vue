@@ -106,7 +106,7 @@ const isSeatDisabled = (row: number, seat: number) => {
 
         &--selected {
           background-color: var(--accent);
-          border: solid 2px var(--dark);
+          border: solid 1px var(--dark);
         }
       }
     }

@@ -17,7 +17,7 @@
     background-color: var(--primary);
     color: var(--white);
     border-radius: 4px;
-    border: solid 2px var(--primary);  
+    border: solid 1px var(--primary);  
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
 
@@ -28,7 +28,7 @@
 
     &:disabled {
       background-color: var(--dark);
-      border: solid 2px var(--dark);
+      border: solid 1px var(--dark);
       cursor: not-allowed;
     }
   }
