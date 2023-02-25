@@ -87,12 +87,8 @@ const props = defineProps({
 
   &__actions {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 6px;
-
-    * {
-      flex-grow: 1;
-    }
 
     a {
       .button {
