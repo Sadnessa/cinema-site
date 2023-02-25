@@ -69,10 +69,15 @@ section {
   overflow: hidden;
 
   &__about {
+    display: flex;
+    flex-direction: column;
     width: 30%;
     padding: 20px;
     padding-left: 0;
-    overflow-x: scroll;
+
+    p {
+      overflow-x: scroll;
+    }
 
     hr {
       color: var(--light);

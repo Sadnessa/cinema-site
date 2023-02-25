@@ -86,6 +86,7 @@ const isSeatDisabled = (row: number, seat: number) => {
   background-color: var(--white);
   border-radius: 6px;
   padding: 20px;
+  overflow-y: auto;
 
   .seats-row {
     display: flex;
@@ -94,12 +95,15 @@ const isSeatDisabled = (row: number, seat: number) => {
 
     .seats {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
       gap: 6px;
       flex-grow: 1;
 
       .seat {
+        width: 40px;
+        height: 40px;
+
         &--selected {
           background-color: var(--accent);
           border: solid 2px var(--dark);

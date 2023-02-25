@@ -11,6 +11,5 @@ header {
   background-color: var(--white);
   position: sticky;
   top: 0;
-  z-index: 1;
 }
 </style>
