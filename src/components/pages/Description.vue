@@ -77,6 +77,8 @@ section {
 
     p {
       overflow-x: scroll;
+      line-height: 30px;
+      margin-top: 0;
     }
 
     hr {

@@ -27,8 +27,8 @@
     }
 
     &:disabled {
-      background-color: var(--dark);
-      border: solid 1px var(--dark);
+      background-color: var(--accent2);
+      border: solid 1px var(--accent2);
       cursor: not-allowed;
     }
   }

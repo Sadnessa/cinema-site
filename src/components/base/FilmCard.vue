@@ -72,6 +72,7 @@ const props = defineProps({
     width: 90%;
     overflow: hidden;
     white-space: nowrap;
+    font-size: 20px;
 
     &::after {
       position: absolute;
