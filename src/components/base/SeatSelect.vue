@@ -2,19 +2,20 @@
   <div class="seat-select">
     <div class="wrapper">
       <div class="seats-row" v-for="(rowNumber, i) in row" :key="i">
-      <p class="row-number">{{ i + 1 }}</p>
-      <div class="seats">
-        <MyButton
-          class="seat"
-          v-for="seatNumber in rowNumber"
-          :class="selectedClass(i + 1, seatNumber)"
-          :disabled="isSeatDisabled(i + 1, seatNumber)"
-          @click="onSeatClick(i + 1, seatNumber)"
-        >
-          {{ seatNumber }}
-        </MyButton>
+        <p class="row-number">{{ i + 1 }}</p>
+        <div class="seats">
+          <MyButton
+            class="seat"
+            v-for="seatNumber in rowNumber"
+            :class="selectedClass(i + 1, seatNumber)"
+            :disabled="isSeatDisabled(i + 1, seatNumber)"
+            @click="onSeatClick(i + 1, seatNumber)"
+          >
+            {{ seatNumber }}
+          </MyButton>
+        </div>
+        <p class="row-number">{{ i + 1 }}</p>
       </div>
-    </div>
     </div>
   </div>
 </template>

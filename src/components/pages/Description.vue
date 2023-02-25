@@ -14,12 +14,12 @@
           <hr noshade>
           <p>{{ film.description }}</p>
           <div class="actions">
+            <span> {{ film.price + film.currency}} </span>
             <RouterLink
               :to="{ path: '/seat-booking/', query: { film: film.id } }"
             >
               <MyButton>Купить билет</MyButton>
             </RouterLink>
-            <span> {{ film.price + film.currency}} </span>
           </div>
         </div>
       </div>
@@ -79,6 +79,8 @@ section {
       overflow-x: scroll;
       line-height: 30px;
       margin-top: 0;
+      padding-right: 10px;
+      flex-grow: 1;
     }
 
     hr {
@@ -107,11 +109,16 @@ section {
   .content {
     flex-direction: column;
     max-height: 100% !important;
+
     &__about {
       width: auto !important;
       overflow-x: visible !important;
       padding-left: 20px !important;
       padding-top: 0;
+
+      p {
+        padding-right: 0 !important;
+      }
     }
   }
 }
@@ -120,11 +127,16 @@ section {
   .content {
     flex-direction: column;
     max-height: 100% !important;
+
     &__about {
       width: auto !important;
       overflow-x: visible !important;
       padding-left: 20px !important;
-      padding-top: 0
+      padding-top: 0;
+
+      p {
+        padding-right: 0 !important;
+      }
     }
   }
 }

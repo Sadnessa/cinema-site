@@ -113,9 +113,16 @@ const clearSelection = () => {
     margin-top: 20px;
   }
 
-  .button {
+  .actions {
     margin-top: 20px;
-    margin-right: 10px;
+
+    .button {
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }
 
