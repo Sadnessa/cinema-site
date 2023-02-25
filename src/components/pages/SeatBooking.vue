@@ -29,7 +29,12 @@
       </div>
       <MyModal v-model:openModal="doShowModal" @submitClick="submitClick">
         <template #header> Забронировать? </template>
-        <p>Выбранные места: {{ renderSelectedSeats() }}</p>
+        <p>Выбранные места:</p>
+        <div class="selected-seats">
+          <div class="seat" v-for="i in renderSelectedSeats()">
+            {{ i }}
+          </div>
+        </div>
         <p>Количество билетов: {{ selectedSeats.length }}</p>
         <p>К оплате: {{ film.price * selectedSeats.length }}</p>
       </MyModal>
@@ -71,7 +76,7 @@ const renderSelectedSeats = () => {
   const render = selectedSeats.value.map((el) => {
     return `ряд: ${el.row}, место: ${el.seat}`;
   });
-  return render.join("; ");
+  return render;
 };
 </script>
 
@@ -96,5 +101,21 @@ const renderSelectedSeats = () => {
   .button {
     margin-top: 20px;
   }
+}
+
+.selected-seats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  overflow-y: auto;
+  max-height: 100px;
+}
+
+.seat {
+  background-color: var(--light);
+  width: fit-content;
+  padding: 10px;
+  border-radius: 6px;
 }
 </style>

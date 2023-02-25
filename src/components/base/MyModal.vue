@@ -5,7 +5,9 @@
         <slot name="header"></slot>
       </h1>
       <hr noshade />
-      <slot />
+      <div class="content">
+        <slot />
+      </div>
       <div class="modal__buttons">
         <MyButton flat @click="onDecline">Отклонить</MyButton>
         <MyButton @click="$emit('submitClick')">Подтвердить</MyButton>
@@ -26,7 +28,7 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits(["update:openModal", 'submitClick']);
+const emits = defineEmits(["update:openModal", "submitClick"]);
 
 const openModal = computed({
   get() {
