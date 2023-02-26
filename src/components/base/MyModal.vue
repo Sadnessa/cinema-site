@@ -71,7 +71,7 @@ const onDecline = () => {
   &__buttons {
     display: flex;
     justify-content: flex-end;
-    gap: 20px;
+    gap: 10px;
   }
 
   &__overlay {

@@ -109,7 +109,7 @@ const onLoadCardImage = () => {
   &__actions {
     display: flex;
     justify-content: flex-end;
-    gap: 6px;
+    gap: 10px;
 
     a {
       .button {
