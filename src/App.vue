@@ -1,7 +1,11 @@
 <template>
   <main>
     <AppHeader />
-    <RouterView />
+    <RouterView v-slot="{ Component }">
+      <Transition name="show" mode="out-in">
+        <component :is="Component" />
+      </Transition>
+    </RouterView>
     <AppFooter />
   </main>
 </template>
@@ -39,10 +43,23 @@ h1 {
   font-weight: 500;
 
   &.resizable {
-    font-size: clamp(20px, 3vw, 24px); 
+    font-size: clamp(20px, 3vw, 24px);
   }
 }
 
+
+//transition between routes
+.show-enter-active,
+.show-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.show-enter-from,
+.show-leave-to {
+  opacity: 0;
+}
+
+//responsive
 @include xl {
   .container {
     max-width: 1320px;
