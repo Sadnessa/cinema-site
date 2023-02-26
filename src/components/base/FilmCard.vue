@@ -1,7 +1,10 @@
 <template>
   <div class="card">
     <div class="card__img">
-      <img :src="card.img" />
+      <div class="card__img-loader" v-if="isLoadingImage">
+      <MyLoader class="loader"/>
+      </div>
+      <img :src="card.img" @load="onLoadCardImage"/>
     </div>
     <div class="card__content">
       <div class="card__header">
@@ -24,8 +27,9 @@
 
 <script setup lang="ts">
 import MyButton from "./MyButton.vue";
+import MyLoader from "./MyLoader.vue";
 import { type Film } from "../../api";
-import { PropType } from "vue";
+import { PropType, ref } from "vue";
 
 const props = defineProps({
   card: {
@@ -33,6 +37,12 @@ const props = defineProps({
     required: true,
   },
 });
+
+const isLoadingImage = ref<boolean>(true);
+
+const onLoadCardImage = () => {
+  isLoadingImage.value = !isLoadingImage.value;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -44,6 +54,7 @@ const props = defineProps({
   border-radius: 6px;
 
   &__img {
+    position: relative;
     width: 100%;
     height: 200px;
 
@@ -52,6 +63,16 @@ const props = defineProps({
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  &__img-loader {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
   }
 
   &__content {
@@ -78,7 +99,7 @@ const props = defineProps({
       position: absolute;
       top: 0;
       right: 0;
-      content: '';
+      content: "";
       width: 10%;
       height: 100%;
       background-image: linear-gradient(to right, transparent, var(--white));

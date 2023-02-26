@@ -7,7 +7,10 @@
       </div>
       <div class="content">
         <div class="content__img">
-          <img :src="film.img" />
+          <div class="content__img-loader" v-if="isLoadingImage">
+            <MyLoader/>
+          </div>
+          <img :src="film.img" @load="onLoadCardImage"/>
         </div>
         <div class="content__about">
           <h1>{{ film.title }}</h1>
@@ -28,9 +31,10 @@
 </template>
 
 <script setup lang="ts">
+import MyButton from "../base/MyButton.vue";
+import MyLoader from "../base/MyLoader.vue";
 import { useFilms } from "../../store/store";
 import { useRoute } from "vue-router";
-import MyButton from "../base/MyButton.vue";
 import { ref } from "vue";
 import { Film } from "../../api";
 
@@ -39,6 +43,12 @@ const route = useRoute();
 
 const film = ref<Film>();
 loadFilm(Number(route.query.film)).then((value) => (film.value = value));
+
+const isLoadingImage = ref<boolean>(true);
+
+const onLoadCardImage = () => {
+  isLoadingImage.value = !isLoadingImage.value;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -95,6 +105,7 @@ section {
   }
 
   &__img {
+    position: relative;
     flex-grow: 1;
 
     img {
@@ -102,6 +113,16 @@ section {
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  &__img-loader {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
   }
 }
 
