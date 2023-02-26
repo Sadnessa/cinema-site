@@ -3,7 +3,7 @@
     <div class="container" v-if="film">
       <div class="header">
         <MyButton @click="$router.back()">Назад</MyButton>
-        <h1>{{ film.title }}</h1>
+        <h1 class="resizable">{{ film.title }}</h1>
       </div>
       <div class="content">
         <div class="content__img">
@@ -13,7 +13,7 @@
           <img :src="film.img" @load="onLoadCardImage"/>
         </div>
         <div class="content__about">
-          <h1>{{ film.title }}</h1>
+          <h1 class="resizable">{{ film.title }}</h1>
           <hr noshade>
           <p>{{ film.description }}</p>
           <div class="actions">

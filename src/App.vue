@@ -14,7 +14,7 @@ import AppFooter from "./components/layout/AppFooter.vue";
 <style lang="scss">
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: var(--dark);
 }
 
@@ -37,6 +37,10 @@ section {
 h1 {
   margin: 0;
   font-weight: 500;
+
+  &.resizable {
+    font-size: clamp(20px, 3vw, 24px); 
+  }
 }
 
 @include xl {

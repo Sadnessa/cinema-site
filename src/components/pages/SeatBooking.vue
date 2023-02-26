@@ -3,7 +3,7 @@
     <div class="container" v-if="film">
       <div class="header">
         <MyButton @click="$router.back()">Назад</MyButton>
-        <h1>{{ film.title }}</h1>
+        <h1 class="resizable">{{ film.title }}</h1>
       </div>
       <SeatSelect
         :bookedSeats="film.seats.booked"

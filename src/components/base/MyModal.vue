@@ -1,7 +1,7 @@
 <template>
   <div class="modal" v-if="openModal">
     <div class="modal__card">
-      <h1>
+      <h1 class="resizable">
         <slot name="header"></slot>
       </h1>
       <hr noshade />
@@ -62,6 +62,7 @@ const onDecline = () => {
     border-radius: 6px;
     padding: 20px;
     text-align: center;
+    margin: 0 10px;
 
     hr {
       color: var(--light);
