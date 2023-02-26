@@ -1,7 +1,8 @@
 <template>
   <header>
     <div class="container">
-      MyFilms
+      <img src="/favicon.png" />
+      <h2>MyFilms</h2>
     </div>
   </header>
 </template>
@@ -12,5 +13,21 @@ header {
   position: sticky;
   top: 0;
   z-index: 1;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    h2 {
+      margin: 0;
+      font-family: 'Pacifico', cursive;
+    }
+
+    img {
+      width: 40px;
+    }
+  }
 }
 </style>

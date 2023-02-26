@@ -95,6 +95,7 @@ section {
 
     hr {
       color: var(--light);
+      width: 100%;
     }
 
     .actions {
