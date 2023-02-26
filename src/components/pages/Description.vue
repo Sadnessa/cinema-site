@@ -108,6 +108,7 @@ section {
   &__img {
     position: relative;
     flex-grow: 1;
+    min-height: 200px;
 
     img {
       width: 100%;
