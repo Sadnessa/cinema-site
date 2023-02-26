@@ -76,7 +76,7 @@ const onLoadCardImage = () => {
   }
 
   &__content {
-    padding: 10px 20px;
+    padding: 16px 20px;
     flex-grow: 1;
   }
 
@@ -84,7 +84,7 @@ const onLoadCardImage = () => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 14px;
+    margin-bottom: 20px;
     gap: 20px;
   }
 

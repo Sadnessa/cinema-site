@@ -18,11 +18,11 @@
     background-color: var(--primary);
     color: var(--white);
     border-radius: 4px;
-    border: solid 1px var(--primary);  
+    border: none;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    overflow: hidden;
+    box-sizing: border-box;
 
     &::after {
       position: absolute;
@@ -34,12 +34,12 @@
       background-color: var(--white);
       opacity: 0;
       transition: all ease-in-out 0.3s;
+      border-radius: 4px;
     }
 
     &--flat {
       background-color: transparent;
       color: var(--primary); 
-      border: solid 1px transparent;  
 
       &::after {
         background-color: var(--primary);
@@ -54,7 +54,6 @@
 
     &:disabled {
       background-color: var(--accent2);
-      border: solid 1px var(--accent2);
       cursor: not-allowed;
     }
   }
